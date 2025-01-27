@@ -1,0 +1,14 @@
+langchain_community
+tiktoken
+langchain-openai
+langchainhub
+chromadb==0.5.15
+langchain
+unstructured[all-docs]
+sentence-transformers
+rapidocr-onnxruntime
+semantic-router
+Cohere 
+langchain-huggingface
+python-dotenv
+langchain_chroma

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit your question and get instant answers in a stylish interface.">
+    <meta name="keywords" content="RAG Query, Ask a Question, Interactive Form">
+    <meta name="author" content="Your Name">
+    <title>RAG Query</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #eceff1, #cfd8dc);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.3), rgba(74, 144, 226, 0));
+            z-index: 0;
+        }
+
+        .container:after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.3), rgba(74, 144, 226, 0));
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Styles */
+        h1 {
+            font-size: 2.5rem;
+            color: #4a90e2;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: #6ec1e4;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 10px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(to right, #4a90e2, #6ec1e4);
+            color: white;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #3b78c0, #5daee0);
+            transform: scale(1.05);
+        }
+
+        input[type="submit"] i {
+            margin-left: 8px;
+        }
+
+        /* Result Container */
+        .result-container {
+            margin-top: 20px;
+            background: #f4f8fb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container h2 {
+            margin-bottom: 10px;
+            color: #4a90e2;
+            font-size: 1.5rem;
+        }
+
+        .result-container p {
+            font-size: 1rem;
+            color: #555;
+            white-space: pre-wrap;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+        }
+
+        .question-container h2 {
+            font-size: 1.5rem;
+            color: #6ec1e4;
+            margin-bottom: 10px;
+        }
+
+        .question-container p {
+            font-size: 1rem;
+            color: #555;
+            background: #eef2f6;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        footer a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Ask a Question</h1>
+            <span>Your Virtual Assistant</span>
+            <p>Submit your query below and get an instant response.</p>
+            <form method="POST" aria-label="Submit your question">
+                <label for="question">Your Question</label>
+                <textarea id="question" name="question" rows="6" placeholder="Type your question here..."></textarea>
+                <input type="submit" value="Submit">
+            </form>
+
+            {% if question %}
+                <div class="question-container">
+                    <h2>Your Question:</h2>
+                    <p>{{ question }}</p>
+                </div>
+            {% endif %}
+
+            {% if result %}
+                <div class="result-container" aria-live="polite">
+                    <h2>Result:</h2>
+                    <p>{{ result | safe }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <p>Designed by <a href="#">Your Name</a>. Powered by RAG Query System.</p>
+    </footer>
+</body>
+</html>

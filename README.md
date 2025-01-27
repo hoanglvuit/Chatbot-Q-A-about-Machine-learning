@@ -23,10 +23,13 @@ To get started with this project, follow the instructions below.
    echo "" > .env
 5. Open .env file and write:
    LANGCHAIN_API_KEY = VALUE
+    
    OPENAI_API_KEY = VALUE
+   
    COHERE_API_KEY  = VALUE
+   
    VALUE not string and save as UTF-8
-6. Done. You can run like: python scripts/main.py 'svm là gì?'
+7. Done. You can run like: python scripts/main.py 'svm là gì?'
 
    
 

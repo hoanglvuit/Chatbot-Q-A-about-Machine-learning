@@ -13,8 +13,10 @@ To get started with this project, follow the instructions below.
 ### How to run ? 
 
 1. Clone the repository:
+
    git clone https://github.com/hoanglvuit/Chatbot-Q-A-about-Machine-learning.git
 2. Navigate to the project directory:
+
    cd Chatbot-Q-A-about-Machine-learning
 3. Install dependencies:
    pip install -r requirement.txt
@@ -31,7 +33,7 @@ To get started with this project, follow the instructions below.
    COHERE_API_KEY  = VALUE
    
    VALUE not string and save as UTF-8
-7. Done. You can run like: python scripts/main.py 'svm là gì?'
+8. Done. You can run like: python scripts/main.py 'svm là gì?'
 
    
 

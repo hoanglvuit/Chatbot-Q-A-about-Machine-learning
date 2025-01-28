@@ -1,7 +1,9 @@
 # Introduce
-Ứng dụng RAG trong việc thiết kế Chatbot hỏi đáp về những vấn đề trong Machine learning
+Ứng dụng RAG trong việc thiết kế Chatbot hỏi đáp về những vấn đề trong Machine learning 
+
 Dữ liệu là một cuốn sách - trong project này là cuốn machinelearningcoban của Vũ Hữu Tiệp
 Thiết kế dựa trên llamaindex, langchain và semantic router 
+
 ## Getting Started
 To get started with this project, follow the instructions below.
 ### Note

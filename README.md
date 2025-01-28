@@ -19,13 +19,20 @@ To get started with this project, follow the instructions below.
 
    cd Chatbot-Q-A-about-Machine-learning
 3. Install dependencies:
+ 
    pip install -r requirement.txt
+   
    cd projectname
+   
    pip install .
+   
    cd ..
+   
 4. Create .env file:
+ 
    echo "" > .env
 5. Open .env file and write:
+ 
    LANGCHAIN_API_KEY = VALUE
     
    OPENAI_API_KEY = VALUE
@@ -33,7 +40,7 @@ To get started with this project, follow the instructions below.
    COHERE_API_KEY  = VALUE
    
    VALUE not string and save as UTF-8
-8. Done. You can run like: python scripts/main.py 'svm là gì?'
+6. Done. You can run like: python scripts/main.py 'svm là gì?'
 
    
 

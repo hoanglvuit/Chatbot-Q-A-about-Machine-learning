@@ -3,6 +3,7 @@
 
 Dữ liệu là một cuốn sách - trong project này là cuốn machinelearningcoban của Vũ Hữu Tiệp
 Thiết kế dựa trên llamaindex, langchain và semantic router 
+![Architecture](pipeline.png)
 
 ## Getting Started
 To get started with this project, follow the instructions below.
@@ -39,8 +40,9 @@ To get started with this project, follow the instructions below.
    
    COHERE_API_KEY  = VALUE
    
-   VALUE not string and save as UTF-8
+   Save as UTF-8
 6. Done. You can run like: python scripts/main.py 'svm là gì?'
+7. Note that you can only run whine inside in Chatbot-Q-A-about-Machine-learning
 
    
 

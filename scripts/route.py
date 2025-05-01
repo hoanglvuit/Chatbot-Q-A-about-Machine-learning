@@ -136,9 +136,8 @@ multi_class_support_vector_machine = Route(
 
 routes = [vu_huu_tiep,loi_tac_gia,on_tap_dai_so_tuyen_tinh,naive_bayes_classifier,giai_tich_ma_tran,on_tap_xac_suat,maximum_likelihood_va_maximum_a_posteriori,cac_khai_niem_co_ban,gioi_thieu_ve_feature_engineering,linear_regression,overfitting,k_nearest_neighbors,k_means_clustering,gradient_descent,perceptron_learning_algorithm,logistic_regression,softmax_regression,multilayer_neural_network_va_backpropagation,content_based_recommendation_system,neighborhood_based_collaborative_filtering,matrix_factorization_collaborative_filtering,singular_value_decomposition,principal_component_analysis,linear_discriminant_analysis,tap_loi_va_ham_loi,bai_toan_toi_uu_loi,duality,support_vector_machine,soft_margin_support_vector_machine,kernel_support_vector_machine,multi_class_support_vector_machine]
 
-# os.environ["COHERE_API_KEY"] = os.getenv("COHERE_API_KEY")
 encoder = CohereEncoder()
-
+print('run route')
 # Tạo RouteLayer
 route_layer = RouteLayer(encoder=encoder, routes=routes,aggregation = 'max',)
 

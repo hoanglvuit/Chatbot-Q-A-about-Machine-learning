@@ -1,5 +1,5 @@
 import sys  # Add this import
-from route import *
+from route import route_layer
 from create_database import *
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -13,7 +13,7 @@ load_dotenv()
 
 # Set environment variables
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
-# os.environ['LANGCHAIN_ENDPOINT'] = LANGCHAIN_ENDPOINT
+os.environ['LANGCHAIN_ENDPOINT'] = 'https://api.smith.langchain.com'
 # os.environ['LANGCHAIN_API_KEY'] = LANGCHAIN_API_KEY
 # os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
